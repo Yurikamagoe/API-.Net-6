@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TvUuhNzz0XW2gR7VvfvAjpO1dMJcoqFAzzXnFc7N21AdbEX7G3VTdv+7jmy8IQOWzYt86HJf9MFtgJQ2rJSFJA==",
+  "dgSpecHash": "6Ei6v5O+bmkEU/wqtvXmq19att8wHEGj6oq18biZO0J6Fzz/GEX8zKKJ7rAHmPGebbdS0sJmzvJxvlzjlP3GjQ==",
   "success": true,
-  "projectFilePath": "C:\\CURSOS\\api\\api.csproj",
+  "projectFilePath": "C:\\CURSOS\\API-.Net-6\\api\\api.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

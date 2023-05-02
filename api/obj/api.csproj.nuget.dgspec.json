@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\CURSOS\\api\\api.csproj": {}
+    "C:\\CURSOS\\API-.Net-6\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\CURSOS\\api\\api.csproj": {
+    "C:\\CURSOS\\API-.Net-6\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\CURSOS\\api\\api.csproj",
+        "projectUniqueName": "C:\\CURSOS\\API-.Net-6\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\CURSOS\\api\\api.csproj",
+        "projectPath": "C:\\CURSOS\\API-.Net-6\\api\\api.csproj",
         "packagesPath": "C:\\Users\\yuri_\\.nuget\\packages\\",
-        "outputPath": "C:\\CURSOS\\api\\obj\\",
+        "outputPath": "C:\\CURSOS\\API-.Net-6\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\yuri_\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -11,30 +11,31 @@ app.MapGet("/addHeader", (HttpResponse response) => {
 });
 
 
-//Parameter Through QueryString
-app.MapGet("/getBook", ([FromQuery] string dateStart, [FromQuery] string dateEnd) => {
-    return dateStart + " - " + dateEnd;
-});
+// //Parameter Through QueryString
+// app.MapGet("/getBook", ([FromQuery] string dateStart, [FromQuery] string dateEnd) => {
+//     return dateStart + " - " + dateEnd;
+// });
+
+
+// //Parameter through Header
+// app.MapGet("/getBookByHeader", (HttpRequest request) => {
+//     return request.Headers["book-code"].ToString();
+// });
 
 //Parameter Through Route
-app.MapGet("/getBook/{code}", ([FromRoute] string code) => {
+app.MapGet("/books/{code}", ([FromRoute] string code) => {
     Book book = BookCollection.GetBy(code);
     return book;
 });
 
-//Parameter through Header
-app.MapGet("/getBookByHeader", (HttpRequest request) => {
-    return request.Headers["book-code"].ToString();
-});
-
 //Save book 
-app.MapPost("/saveBook", (Book book) =>{
+app.MapPost("/books", (Book book) =>{
    BookCollection.Add(book);
    return new {Success = "True", Response = "Método executado com sucesso"};
 });
 
 //Edit book properties
-app.MapPut("/editBook", (Book book) =>{
+app.MapPut("/books", (Book book) =>{
    Book savedBook = BookCollection.GetBy(book.Code);
    savedBook.Title = book.Title;
    savedBook.Code = book.Code;
@@ -43,7 +44,7 @@ app.MapPut("/editBook", (Book book) =>{
 });
 
 //Delete book from list
-app.MapDelete("/removeBook/{code}", ([FromRoute] string code) => {
+app.MapDelete("/books/{code}", ([FromRoute] string code) => {
    Book bookToRemove = BookCollection.GetBy(code);
    BookCollection.Delete(bookToRemove);  
    return new {Success = "True", Response = "Elemento removido com sucesso"}; 
