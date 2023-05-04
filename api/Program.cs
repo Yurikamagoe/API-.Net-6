@@ -22,32 +22,36 @@ app.MapGet("/addHeader", (HttpResponse response) => {
 //     return request.Headers["book-code"].ToString();
 // });
 
-//Parameter Through Route
+//Get book
 app.MapGet("/books/{code}", ([FromRoute] string code) => {
     Book book = BookCollection.GetBy(code);
-    return book;
+    if(book != null)
+        return Results.Ok(book);
+    else
+        return Results.NotFound();
 });
 
 //Save book 
 app.MapPost("/books", (Book book) =>{
    BookCollection.Add(book);
-   return new {Success = "True", Response = "Método executado com sucesso"};
+//    return new {Success = "True", Response = "Método executado com sucesso"};
+      return Results.Created("$/books/{book.Code}", new {Success = "True", Response = "Método executado com sucesso"});
 });
 
 //Edit book properties
 app.MapPut("/books", (Book book) =>{
    Book savedBook = BookCollection.GetBy(book.Code);
-   savedBook.Title = book.Title;
+   savedBook.Title = book.Title;    
    savedBook.Code = book.Code;
    savedBook.Type = book.Type;
-   return savedBook;
+   return Results.Ok(savedBook);
 });
 
 //Delete book from list
 app.MapDelete("/books/{code}", ([FromRoute] string code) => {
    Book bookToRemove = BookCollection.GetBy(code);
    BookCollection.Delete(bookToRemove);  
-   return new {Success = "True", Response = "Elemento removido com sucesso"}; 
+   return Results.Ok();
 });
 
 app.Run();
